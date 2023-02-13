@@ -45,6 +45,7 @@ public class ByteBufTest {
 
     private static void print(String action, ByteBuf buffer) {
         System.out.println("after ===========" + action + "============");
+//        System.out.println("write-read: " + (buffer.writerIndex()-buffer.readerIndex()));
         System.out.println("capacity(): " + buffer.capacity());
         System.out.println("maxCapacity(): " + buffer.maxCapacity());
         System.out.println("readerIndex(): " + buffer.readerIndex());
