@@ -15,13 +15,15 @@ import java.util.Date;
 public class FirstClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelActive(ChannelHandlerContext ctx) {
-        System.out.println(new Date() + ": 客户端写出数据");
-
+        /*System.out.println(new Date() + ": 客户端写出数据");
         // 1.获取数据
         ByteBuf buffer = getByteBuf(ctx);
-
         // 2.写数据
-        ctx.channel().writeAndFlush(buffer);
+        ctx.channel().writeAndFlush(buffer);*/
+        for (int i = 0; i < 1000; i++) {
+            ByteBuf buffer = getByteBuf(ctx);
+            ctx.channel().writeAndFlush(buffer);
+        }
     }
 
     private ByteBuf getByteBuf(ChannelHandlerContext ctx) {
