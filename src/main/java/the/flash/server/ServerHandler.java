@@ -9,6 +9,7 @@ import the.flash.protocol.request.LoginRequestPacket;
 import the.flash.protocol.request.MessageRequestPacket;
 import the.flash.protocol.response.LoginResponsePacket;
 import the.flash.protocol.response.MessageResponsePacket;
+import the.flash.util.LoginUtil;
 
 import java.util.Date;
 
@@ -35,6 +36,8 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
             if (valid(loginRequestPacket)) {
                 loginResponsePacket.setSuccess(true);
                 System.out.println(new Date() + ": 登录成功!");
+                // 服务端设置，客户端是拿不到值的
+//                LoginUtil.markAsLogin(ctx.channel());
             } else {
                 loginResponsePacket.setReason("账号密码校验失败");
                 loginResponsePacket.setSuccess(false);

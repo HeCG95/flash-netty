@@ -78,6 +78,8 @@ public class NettyClient {
                     packet.setMessage(line);
                     ByteBuf byteBuf = PacketCodeC.INSTANCE.encode(channel.alloc(), packet);
                     channel.writeAndFlush(byteBuf);
+                }else {
+                    System.out.println("未登录...");
                 }
             }
         }).start();
