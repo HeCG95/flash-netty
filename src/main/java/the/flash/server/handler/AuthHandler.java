@@ -9,9 +9,9 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         if (!LoginUtil.hasLogin(ctx.channel())) {
-            ctx.channel().close();
+            ctx.channel().close();// 未登录-直接强制关闭连接
         } else {
-            ctx.pipeline().remove(this);
+            ctx.pipeline().remove(this);// pipeline 的热插拔机制
             super.channelRead(ctx, msg);
         }
     }
