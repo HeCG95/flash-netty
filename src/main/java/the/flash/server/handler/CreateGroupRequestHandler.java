@@ -19,6 +19,7 @@ public class CreateGroupRequestHandler extends SimpleChannelInboundHandler<Creat
         List<String> userIdList = createGroupRequestPacket.getUserIdList();
 
         List<String> userNameList = new ArrayList<>();
+
         // 1. 创建一个 channel 分组
         ChannelGroup channelGroup = new DefaultChannelGroup(ctx.executor());
 
