@@ -13,7 +13,7 @@ public class QuitGroupRequestHandler extends SimpleChannelInboundHandler<QuitGro
         // 1. 获取群对应的 channelGroup，然后将当前用户的 channel 移除
         String groupId = requestPacket.getGroupId();
         ChannelGroup channelGroup = SessionUtil.getChannelGroup(groupId);
-        channelGroup.remove(ctx.channel());
+        channelGroup.remove(ctx.channel());// 服务端即完成了退出群聊的逻辑
 
         // 2. 构造退群响应发送给客户端
         QuitGroupResponsePacket responsePacket = new QuitGroupResponsePacket();
